@@ -5,19 +5,19 @@
     <title></title>
 </head>
 <body>
-    <table>
-        <tr><td>product_name</td><td><input type="text" id="product_name" /></td></tr>
-        <tr><td>supplier</td><td><input type="text" id="supplier" /></td></tr>
-        <tr><td>quantity</td><td><input type="text" id="quantity" /></td></tr>
-        <tr><td>unit_cost</td><td><input type="text" id="unit_cost" /></td></tr>
-        <tr><td></td><td><input type="button" value="Save" onclick="add()" /></td></tr>
-    </table>
-    <div hw-app="app">
-        <input type="text" id="txt" />
-        
+   
+    <div hw-app="app1">
+        <table>
+            <tr><td>product_name</td><td><input type="text" id="product_name" /></td></tr>
+            <tr><td>supplier</td><td><input type="text" id="supplier" /></td></tr>
+            <tr><td>quantity</td><td><input type="text" id="quantity" /></td></tr>
+            <tr><td>unit_cost</td><td><input type="text" id="unit_cost" /></td></tr>
+            <tr><td></td><td><input type="button" value="Save" onclick="add()" /></td></tr>
+        </table>
+
 
         <div hw-source="data">
-            <p>
+            <p class="anim">
                 <strong style="color:[[getColor({{quantity}})]]" onclick="showAlert('Product name is: {{product_name}}')">{{product_name}}</strong>
                 <br />
                 {{supplier}}, {{quantity}}, {{unit_cost}}
@@ -29,55 +29,139 @@
         </div>
 
     </div>
+
+
+    <div hw-app="app2">
+        <input type="text" id="txt" />
+
+
+        <div hw-source="data">
+            <p class="anim">
+                <strong style="color:[[getColor({{id}})]]" onclick="showAlert('Name is: {{name}}')">{{name}}</strong>
+
+                {{price}}
+
+            </p>
+
+            <hr />
+
+        </div>
+
+    </div>
+    
+
     <script src="Repeater.js"></script>
     <script>
-        
+ (function app1() {
+         var self=this
 
-        var data = [{
-            "product_name": "sildenafil citrate",
-            "supplier": "Wisozk Inc",
-            "quantity": 261,
-            "unit_cost": "$10.47"
-        }, {
-            "product_name": "Mountain Juniperus ashei",
-            "supplier": "Keebler-Hilpert",
-            "quantity": 292,
-            "unit_cost": "$8.74"
-        }, {
-            "product_name": "Dextromathorphan HBr",
-            "supplier": "Schmitt-Weissnat",
-            "quantity": 211,
-            "unit_cost": "$20.53"
-        }]
+            this.data = [{
+                "product_name": "sildenafil citrate",
+                "supplier": "Wisozk Inc",
+                "quantity": 261,
+                "unit_cost": "$10.47"
+            }, {
+                "product_name": "Mountain Juniperus ashei",
+                "supplier": "Keebler-Hilpert",
+                "quantity": 292,
+                "unit_cost": "$8.74"
+            }, {
+                "product_name": "Dextromathorphan HBr",
+                "supplier": "Schmitt-Weissnat",
+                "quantity": 211,
+                "unit_cost": "$20.53"
+            }]
 
 
-        
-        function getColor(quantity) {
-            if (quantity == 292) {
-                return "Red"
+
+            this.getColor=function (quantity) {
+                if (quantity == 292) {
+                    return "Red"
+                }
+                return "Blue"
             }
-            return "Blue"
+
+            this.showAlert=function (text) {
+                alert(text);
+            }
+
+
+           this.add= function ()  {
+                this.data.push({
+                    "product_name": product_name.value,
+                    "supplier": supplier.value,
+                    "quantity": quantity.value,
+                    "unit_cost": unit_cost.value
+                })
+
+                self.app.run(this);
+            }
+
+           this.app = new $hw("app1");
+           window.onload =this.app.run(this);
+
+        }())
+
+            (function app2() {
+
+
+          
+
+                this.data = [
+                    {
+                        "id": 2,
+                        "name": "An ice sculpture",
+                        "price": 12.50,
+                        "tags": ["cold", "ice"],
+                        "dimensions": {
+                            "length": 7.0,
+                            "width": 12.0,
+                            "height": 9.5
+                        },
+                        "warehouseLocation": {
+                            "latitude": -78.75,
+                            "longitude": 20.4
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "name": "A blue mouse",
+                        "price": 25.50,
+                        "dimensions": {
+                            "length": 3.1,
+                            "width": 1.0,
+                            "height": 1.0
+                        },
+                        "warehouseLocation": {
+                            "latitude": 54.4,
+                            "longitude": -32.7
+                        }
+                    }
+                ]
+
+
+
+                this.getColor = function (id) {
+                    if (id == 3) {
+                        return "orange"
+                    }
+                    return "green"
+                }
+
+                this.showAlert = function (text) {
+                    alert(text);
+                }
+
+
+                this.app = new $hw("app2");
+                window.onload = this.app.run(this);
+
+            }())
+
+        function show() {
+            alert("show called");
         }
 
-        function showAlert(text) {
-            alert(text);
-        }
-      
-
-        function add() {
-            data.push({
-                "product_name": product_name.value,
-                "supplier": supplier.value,
-                "quantity": quantity.value,
-                "unit_cost": unit_cost.value
-            })
-
-            h.run("app");
-        }
-
-        var h = new $hw("app");
-
-        window.onload = h.run();
     </script>
 
 
