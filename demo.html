@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <table>
+        <tr><td>product_name</td><td><input type="text" id="product_name" /></td></tr>
+        <tr><td>supplier</td><td><input type="text" id="supplier" /></td></tr>
+        <tr><td>quantity</td><td><input type="text" id="quantity" /></td></tr>
+        <tr><td>unit_cost</td><td><input type="text" id="unit_cost" /></td></tr>
+        <tr><td></td><td><input type="button" value="Save" onclick="add()" /></td></tr>
+    </table>
+    <div hw-app="app">
+        <input type="text" id="txt" />
+        
+
+        <div hw-source="data">
+            <p>
+                <strong style="color:[[getColor({{quantity}})]]" onclick="showAlert('Product name is: {{product_name}}')">{{product_name}}</strong>
+                <br />
+                {{supplier}}, {{quantity}}, {{unit_cost}}
+
+            </p>
+
+            <hr />
+
+        </div>
+
+    </div>
+    <script src="Repeater.js"></script>
+    <script>
+        
+
+        var data = [{
+            "product_name": "sildenafil citrate",
+            "supplier": "Wisozk Inc",
+            "quantity": 261,
+            "unit_cost": "$10.47"
+        }, {
+            "product_name": "Mountain Juniperus ashei",
+            "supplier": "Keebler-Hilpert",
+            "quantity": 292,
+            "unit_cost": "$8.74"
+        }, {
+            "product_name": "Dextromathorphan HBr",
+            "supplier": "Schmitt-Weissnat",
+            "quantity": 211,
+            "unit_cost": "$20.53"
+        }]
+
+
+        
+        function getColor(quantity) {
+            if (quantity == 292) {
+                return "Red"
+            }
+            return "Blue"
+        }
+
+        function showAlert(text) {
+            alert(text);
+        }
+      
+
+        function add() {
+            data.push({
+                "product_name": product_name.value,
+                "supplier": supplier.value,
+                "quantity": quantity.value,
+                "unit_cost": unit_cost.value
+            })
+
+            h.run("app");
+        }
+
+        var h = new $hw("app");
+
+        window.onload = h.run();
+    </script>
+
+
+</body>
+
+</html>
+
