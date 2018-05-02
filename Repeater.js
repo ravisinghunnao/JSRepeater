@@ -1,23 +1,23 @@
 ﻿
-var $hw = function (appId) {
 
+var $hw = function (appId, extend) {
+    this.o = extend
     var $ = function (selector) {
         return document.querySelectorAll(selector)
     }
 
-
     this.appId = appId;
-    this.app = $("*[hw-app=" + appId +"]")[0]
+    this.app = $("*[hw-app=" + appId + "]")[0]
     this.html = $("*[hw-app=" + appId + "]")[0].innerHTML
 
     var self = this;
 
-    this.run = function (scope) {
-      
-        self.scope = scope;
+    this.run = function () {
+
+        
         self.app.innerHTML = self.html;
-        var r = document.querySelector("*[hw-app=" + self.appId + "]" )
-       
+        var r = document.querySelector("*[hw-app=" + self.appId + "]")
+
         while (r.querySelector("*[hw-source]") != null) {
 
             bindInnerElement(r)
@@ -36,8 +36,8 @@ var $hw = function (appId) {
 
         var html = r.innerHTML
         var dataHTML = ""
-        var data = eval("self.scope." + r.getAttribute("hw-source"))
-        
+        var data = eval("self.o." + r.getAttribute("hw-source"))
+
         r.removeAttribute("hw-source");
         if (data != null) {
             data.forEach(function (d) {
@@ -67,13 +67,11 @@ var $hw = function (appId) {
         var arr = html.split(rightBrace);
         for (var i = 0; i < arr.length; i++) {
             var value = (arr[i].split(leftBrace))[1]
-            if (value != undefined) {
-                var s = "window."
-                if (value.toString().search("window.") <= 0) {
-                    s = "self.scope."
-                }
-            }
-            dataHTML += (arr[i].replace(leftBrace + value, eval(s + value)));
+            
+            dataHTML += (arr[i].replace(leftBrace + value, eval(value)));
+
+
+
         }
         return dataHTML
     }
@@ -94,11 +92,6 @@ var $hw = function (appId) {
     }
 
 
-}
-
-
-function g() {
-   
 }
 
 
