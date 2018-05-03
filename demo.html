@@ -1,41 +1,221 @@
-﻿<!DOCTYPE html>
+﻿
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/Images/tabicon.png" type="image/x-icon" />
+    <title>
+        RSPL Group
+    </title>
+    <link id="cssbootstarp" rel="stylesheet" type="text/css" href="http://172.16.18.152/css/bootstrap/css/bootstrap.min.css" />
+    
+    <link id="csslocal" rel="stylesheet" type="text/css" href="http://172.16.18.152/css/local.css" />
+    <link id="cssanimation" rel="stylesheet" type="text/css" href="http://172.16.18.152/css/animate.css" />
+
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+
+    <link id="cssglossybutton" href="http://172.16.18.152/css/Glossybutton.css" rel="stylesheet" />
+    <link id="cssstyle" href="http://172.16.18.152/css/Style.css" rel="stylesheet" />
+    
+
+
+    <link href="/WebResource.axd?d=VdPoLqp1pEU6N0-IfFplZMpmD1ouf4VhokIIunZpEON_39ClnnCqIagtknNHP6ZKjcDqgizdAOt43Fp4ZJ7o9UqmthTsTYY4a9__a3W_pAPL_5l0o_e3Ab0QdegJLzbL8cG1WA2&amp;t=636505028239390433" type="text/css" rel="stylesheet" class="Telerik_stylesheet" />
+    <link href="/WebResource.axd?d=6d0ORl_GDQ8il0vfaye5Ychm-QaYqXBXeCFc78ip4MdRA7zM9nt9aveMueUDtJ4XiJJtazOHnslmpmSl_j_mlxiWHF4wg-U2M68WQr6NTSHYJj2irH5cC5ORmeeJ5stI8KfPYg2&amp;t=636505028239390433" type="text/css" rel="stylesheet" class="Telerik_stylesheet" />
+    <link href="/WebResource.axd?d=oO40Bmgl131nVzNYSi8Tp2X0Hd5fC5rzF2dgu_PoAkgz1lHvJG-HweLjhScO2_TJiLl4ygfQ_2cIDiPNePguWGNSDbXC1yybEfhAS-avwlGbFQ2LXgwGsKH33k-V5xBjJ_NnXw2&amp;t=636505028239390433" type="text/css" rel="stylesheet" class="Telerik_stylesheet" />
+    <link href="/WebResource.axd?d=9FBPq6ZMdyYvKMIIRnR_-jv06FTo3vKTqd5sPQpi5D05IH9x6nexElDmHGS_gkO69whupAPRXkhQg7iW9lernYsgIfi3SC0jv852C9jnnzi8JaliOSA0xiV2Ub1Ya_MYtU_JgQ2&amp;t=636505028239390433" type="text/css" rel="stylesheet" class="Telerik_stylesheet" />
+    <link href="/WebResource.axd?d=LtBQC2kfQxTznRMtAbA-uSrjVGLSneGGanhTdvAAauzZ65VJ5d-ImmpQ86TCog69Vp5IN_6vGHDXzoQN9TlTtyZ4uwX4MuJe5Bzj-Eat2s23diiUNft6RWNHIUZBS9KQvrFSM8p6iKezsxUByO9wQUOSAjM1&amp;t=636571423329404549" type="text/css" rel="stylesheet" class="Telerik_stylesheet" />
+    <link href="/WebResource.axd?d=Nhf6TpUj19KZ9rhEj2xtdaqJ8yOLHsE5nJL33VFe74izQusch6eRJYCQoJNZOYQDPkLlRxFImv41p3jmHgEZ8Vvv3iLpfH0ag-kyowRlDAw8MNce0&amp;t=636505028239390433" type="text/css" rel="stylesheet" class="Telerik_stylesheet" />
+    <link href="/WebResource.axd?d=0NMpxx239ts8mdD-HPE6bEKkpfjhSYcHZOWPE69yxKoEkUFHcaQDJn_ysTTQ6HUD2W9FiJvoA-GvwJXCApmuG9ipPUUHhU7OF6m304mJfQLL0jquJqcrodYgFieh4PfctOxsv3PvQTaq4-QgdtLWc8mi3xo1&amp;t=636571423329404549" type="text/css" rel="stylesheet" class="Telerik_stylesheet" />
 </head>
-<body>
+<body >
 
-    <div hw-app="app1">
-        <table>
-            <tr><td>product_name</td><td><input type="text" id="product_name" /></td></tr>
-            <tr><td>supplier</td><td><input type="text" id="supplier" /></td></tr>
-            <tr><td>quantity</td><td><input type="text" id="quantity" /></td></tr>
-            <tr><td>unit_cost</td><td><input type="text" id="unit_cost" /></td></tr>
-            <tr><td></td><td><input type="button" value="Save" onclick="m1.o.add()" /></td></tr>
-        </table>
+    
+       
+     
 
 
-        <div hw-source="data">
-            <p class="anim">
-                <strong id="test" style="color:[[m1.o.getColor({{quantity}})]]" onmouseout="changeColor2(this)" onmouseover="changeColor1(this)" onclick="m1.o.test()">{{product_name}}</strong>
-                <br />
-                {{supplier}}, {{quantity}}, {{unit_cost}}
 
-            </p>
+        <script src="http://172.16.18.152/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+        <script src="http://172.16.18.152/js/master.js" type="text/javascript"></script>
+        <script src="http://172.16.18.152/css/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=RadScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-US%3a59e0a739-153b-40bd-883f-4e212fc43305%3aea597d4b%3ab25378d2%3bTelerik.Web.UI%2c+Version%3d2017.3.913.45%2c+Culture%3dneutral%2c+PublicKeyToken%3d121fae78165ba3d4%3aen-US%3a03e3fdef-45f6-40a0-88ab-9645d53a0f37%3a16e4e7cd%3a33715776%3af7645509%3a24ee1bba%3ae330518b%3a2003d0b8%3ac128760b%3a1e771326%3a88144a7a%3ac8618e41%3a1a73651d%3a16d8629e%3aed16cbdc%3af46195d3%3a4cacbc31%3a2a8622d7%3a58366029" type="text/javascript"></script>
+      
 
-            <hr />
-
-        </div>
-
-    </div>
+      
+        <div id="wrapper">
 
 
+
+
+
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+                <div class="navbar-header">
+
+
+                    <a id="Header1_lnk" class="navbar-brand" href="../Default.aspx" style="width: 228px; text-align: center;">  <img src="/Images/rspllogo.png" style="height:50px;" /></a>
+
+
+
+
+                    <div tabindex="0" id="ctl00_Header1_RadMenu2" class="RadMenu RadMenu_">
+                        <!-- 2017.3.913.45 --><ul class="rmRootGroup rmHorizontal">
+                            <li class="rmItem rmFirst"><a class="rmLink rmRootLink" href="http://intranet.rspl.net.in/Default.aspx">Home</a></li>
+                            <li class="rmItem ">
+                                <a class="rmLink rmRootLink" href="javascript:void(0);">Applications</a><div class="rmSlide">
+                                    <ul class="rmVertical rmGroup rmLevel1">
+                                        <li class="rmItem rmFirst"><span class="rmLink" tabindex="0">Feedback</span></li>
+                                        <li class="rmItem "><span class="rmLink" tabindex="0">VMS</span></li>
+                                        <li class="rmItem rmLast"><span class="rmLink" tabindex="0">Idea Generation</span></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="rmItem "><a class="rmLink rmRootLink" href="http://intranet.rspl.net.in/user/leadership1.aspx">Leadership</a></li>
+                            <li class="rmItem "><a class="rmLink rmRootLink" href="http://intranet.rspl.net.in/Policy/ViewPolicy/PolicyList.aspx">Policy</a></li>
+                            <li class="rmItem ">
+                                <a class="rmLink rmRootLink" href="javascript:void(0);">Calendar</a><div class="rmSlide">
+                                    <ul class="rmVertical rmGroup rmLevel1">
+                                        <li class="rmItem rmFirst"><a class="rmLink" href="http://intranet.rspl.net.in/user/holidaycalendar.aspx">Holiday Calendar</a></li>
+                                        <li class="rmItem rmLast"><a class="rmLink" href="http://intranet.rspl.net.in/user/Trainingcalendar.aspx">L&D Calendar</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="rmItem "><a class="rmLink rmRootLink" href="http://intranet.rspl.net.in/user/newsletters.aspx">Media Release</a></li>
+                            <li class="rmItem "><a class="rmLink rmRootLink" href="http://intranet.rspl.net.in/user/ocr.aspx">Transformation</a></li>
+                            <li class="rmItem rmLast"><a class="rmLink rmRootLink" href="http://intranet.rspl.net.in/user/csr.aspx">CSR</a></li>
+                        </ul><input id="ctl00_Header1_RadMenu2_ClientState" name="ctl00_Header1_RadMenu2_ClientState" type="hidden" />
+                    </div>
+
+
+
+                    <a href="/HRSurvey/user/PostSurvey.aspx?surveyid=3" Class="btn btn-danger animated infinite pulse">Submit Survey</a>
+
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                    <ul id="Header1_ulUserMenu" class="nav navbar-nav navbar-right navbar-user">
+
+                        <li class="dropdown user-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-user"></i>
+                                <span id="Header1_lblName">Welcome Sachin Kumar Sharma</span><b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li id="Header1_liprofile"><a href="http://172.16.18.152/user/myprofile.aspx"><i class="fa fa-user"></i>Profile</a></li>
+                                <li id="Header1_liChangePassword">
+                                    <a id="Header1_lnkChangePassword" class="fa fa-user" href="http://172.16.18.152/User/ChangePassword.aspx"> Change Password</a>
+                                </li>
+                                <li id="Header1_liDivider" class="divider"></li>
+                                <li>
+                                    <a id="Header1_lnkLogout" class="fa fa-power-off" href="javascript:__doPostBack(&#39;ctl00$Header1$lnkLogout&#39;,&#39;&#39;)"> Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+
+            <div class="RadAjaxPanel" id="ctl00_ctl00_pnlbtnpinPanel">
+                <div id="ctl00_pnlbtnpin">
+
+                    <div class="doc" onclick="DisplayDoc(1)">
+                        A<br>
+                        p<br>
+                        p<br>
+                        l<br>
+                        i<br>
+                        c<br>
+                        a<br>
+                        t<br>
+                        i<br>
+                        o<br>
+                        n<br>
+                        <br>
+                        M<br>
+                        e<br>
+                        n<br>
+                        u
+                    </div>
+                    <div id="ulLeftMenu" class="nav navbar-nav side-nav">
+
+                        <div id="divcaption" style="text-align: right; padding: 5px; background: linear-gradient(to right,#a0c2ef,#609bff,#6383ca); border: 1px solid #597eb3; position: fixed; width: 224px; transition: width 0.5s,top 0.5s;">
+                            <div style="float: left; padding: 3px;">Application Menu</div>
+                            <a href="javascript:void(0);" id="lnkpin" onclick="ChangePinStatus();"><i class="fa fa-arrow-left fa-button" aria-hidden="true"></i></a>
+                        </div>
+
+                        <div id="ctl00_RPBLeftMenu" class="RadPanelBar RadPanelBar_Web20 leftmenu" NodeWrap="True" style="border-style:None;font-weight:normal;">
+                            <ul class="rpRootGroup">
+                                <li class="rpItem rpFirst rpLast">
+                                    <a href="#" class="rpLink rpRootLink rpExpandable rpExpanded"><span class="rpOut"><span class="rpExpandHandle"></span><span class="rpText">User</span></span></a><div class="rpSlide" style="display:block;">
+                                        <ul class="rpGroup rpLevel1 " style="display:block;">
+                                            <li class="rpItem rpFirst"><a href="default.aspx?Pid=1010" class="rpLink"><span class="rpOut rpNavigation"><span class="rpExpandHandle"></span><span class="rpText"><i class="fa fa-fire text-warning"></i>&nbsp;What is hot?</span></span></a></li>
+                                            <li class="rpItem"><a href="askidea.aspx?Pid=1010" class="rpLink"><span class="rpOut rpNavigation"><span class="rpExpandHandle"></span><span class="rpText"><i class="fa fa-question-circle"></i>&nbsp;Ask Idea</span></span></a></li>
+                                            <li class="rpItem"><a href="myqueries.aspx?Pid=1010" class="rpLink"><span class="rpOut rpNavigation"><span class="rpExpandHandle"></span><span class="rpText"><i class="fa fa-list text-primary"></i>&nbsp;My Queries</span></span></a></li>
+                                            <li class="rpItem"><a href="QueriesForMe.aspx?Pid=1010" class="rpLink"><span class="rpOut rpNavigation"><span class="rpExpandHandle"></span><span class="rpText"><i class="fa fa-user-circle text-info"></i>&nbsp;Queries for me</span></span></a></li>
+                                            <li class="rpItem"><a href="MyPoints.aspx?Pid=1010" class="rpLink"><span class="rpOut rpNavigation"><span class="rpExpandHandle"></span><span class="rpText"><i class="fa fa-star text-success"></i>&nbsp;My Points</span></span></a></li>
+                                            <li class="rpItem rpLast"><a href="MyBookmarks.aspx?Pid=1010" class="rpLink"><span class="rpOut rpNavigation"><span class="rpExpandHandle"></span><span class="rpText"><i class="fa fa-bookmark text-warning"></i>&nbsp;My Bookmarks</span></span></a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul><input id="ctl00_RPBLeftMenu_ClientState" name="ctl00_RPBLeftMenu_ClientState" type="hidden" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+          
+            <div id="page-wrapper">
+                
+
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <i class="fa fa-star"></i>&nbsp;My Points
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                       
+
+                        <div class="row top-buffer-1">
+                            <div class="col-md-12">
+
+
+                                <div hw-app="app1">
+                                  
+
+                                    <h2>{{title}}</h2>
+
+                                    <input type="text" id="txtfilter" hw-model="title" value="Idea Generation" onkeyup="m1.update(this)" onkeypress="m1.update(this)" onkeydown="m1.update(this)" onchange="m1.update(this)" />
+
+                                    <ul hw-repeat="vm in visitorMaster">
+                                        <li style="font-weight:bold;">VisitorName:[["{{vm.Visitor_Name}}".toUpperCase()]]</li>
+                                        <li>
+                                            <ul id="ulvisitor" hw-repeat="v in visitor">
+                                                <li style="color:[[m1.o.getColor({{v.Pass_ID}})]]">Pass ID: {{v.Pass_ID}}</li>
+                                                <li>Employee ID: {{v.Emp_ID}}</li>
+                                                <li>Mobile Number: {{v.Mobile_Number}}</li>
+                                                <li>Visit Department: {{v.Visit_Department}}</li>
+                                                <li> <input type="button" value="{{title}}" onclick="m1.o.test(this)" /></li>
+                                                <li> <input type="button" value="External" onclick="showAlert(this)" /></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+                                </div>
+
+                                <!--<h2>App2</h2>
     <div hw-app="app2">
-        
-        <div hw-source="data">
+
+        <div hw-repeat="data">
             <p class="anim">
-                <strong id="test" style="color:[[m2.o.getColor({{quantity}})]]" onclick="m2.o.showAlert(this)">{{product_name}}</strong>
+                <strong hw-show="[[{{quantity}}!=211]]" id="test" style="color:[[m2.o.getColor({{quantity}})]];"   onclick="m2.o.showAlert(this)">{{product_name}}</strong>
                 <br />
                 {{supplier}}, {{quantity}}, {{unit_cost}}
 
@@ -45,104 +225,127 @@
 
         </div>
 
-    </div>
+    </div>-->
 
 
 
 
-    <script src="Repeater.js"></script>
-    <script>
+                                <script src="Repeater.js"></script>
+                                <script>
 
-        
-        var m1 = new $hw("app1",  {
-            test: function () {
-                alert("test called")
 
-            },
-            data: [{
-                "product_name": "sildenafil citrate",
-                "supplier": "Wisozk Inc",
-                "quantity": 261,
-                "unit_cost": "$10.47"
-            }, {
-                "product_name": "Mountain Juniperus ashei",
-                "supplier": "Keebler-Hilpert",
-                "quantity": 292,
-                "unit_cost": "$8.74"
-            }, {
-                "product_name": "Dextromathorphan HBr",
-                "supplier": "Schmitt-Weissnat",
-                "quantity": 211,
-                "unit_cost": "$20.53"
-            }],
-            getColor: function (value) {
-                if (value == 292) {
-                    return "Red"
-                }
-                return "Blue"
-            },
-            add : function () {
-                this.data.push({
-                    "product_name": product_name.value,
-                    "supplier": supplier.value,
-                    "quantity": quantity.value,
-                    "unit_cost": unit_cost.value
-                })
-                m1.run();
-            }
-        })
-  
-        window.onload = m1.run()
-        console.log(m1)
+                                    var m1 = new $hw("app1", {
+                                        title: "Visitor Management System",
+                                        loading: false,
 
-        var m2 = new $hw("app2", {
-            data: [{
-                "product_name": "sildenafil citrate",
-                "supplier": "Wisozk Inc",
-                "quantity": 261,
-                "unit_cost": "$10.47"
-            }, {
-                "product_name": "Mountain Juniperus ashei",
-                "supplier": "Keebler-Hilpert",
-                "quantity": 292,
-                "unit_cost": "$8.74"
-            }, {
-                "product_name": "Dextromathorphan HBr",
-                "supplier": "Schmitt-Weissnat",
-                "quantity": 211,
-                "unit_cost": "$20.53"
-            }],
-            getColor: function (value) {
-                if (value == 292) {
-                    return "yellow"
-                }
-                return "skyblue"
-            },
-            showAlert: function (obj) {
-                alert(obj.innerHTML);
-            }
+                                        test: function (e) {
+                                            alert("test called by " + e.type)
 
-        })
-            
+                                        },
+                                        visitorMaster: [{ "VM_ID": 9, "Visitor_Name": "sachin", "Mobile_Number": "9899922242", "Origanization": "", "City": "kanpur", "Address": "test" }, { "VM_ID": 10, "Visitor_Name": "Rahul saini", "Mobile_Number": "7905523077", "Origanization": "C LOG CARRIER", "City": "KANPUR", "Address": "FAZAL GANJ" }, { "VM_ID": 11, "Visitor_Name": "aditya shingh", "Mobile_Number": "9305195640", "Origanization": "", "City": "kanpur", "Address": "barra 2" }, { "VM_ID": 12, "Visitor_Name": "abhay chauhan", "Mobile_Number": "8090512662", "Origanization": "", "City": "kanpur", "Address": "shastri nagar" }, { "VM_ID": 13, "Visitor_Name": "sachin kumar", "Mobile_Number": "8604190633", "Origanization": "", "City": "kanpur", "Address": "kalyanpur" }, { "VM_ID": 14, "Visitor_Name": "ankush kapoor", "Mobile_Number": "7275814787", "Origanization": "", "City": "kanpur", "Address": "govind nagar" }, { "VM_ID": 15, "Visitor_Name": "mona singh", "Mobile_Number": "8172874023", "Origanization": "", "City": "kanpur", "Address": "medical colleg" }, { "VM_ID": 16, "Visitor_Name": "Amit sharma", "Mobile_Number": "8400451703", "Origanization": "gulf lubri cation", "City": "kanpur", "Address": "panki" }, { "VM_ID": 17, "Visitor_Name": "akash diwedi", "Mobile_Number": "7897206324", "Origanization": "", "City": "kanpur", "Address": "naubsta" }, { "VM_ID": 18, "Visitor_Name": "rajni gautam", "Mobile_Number": "8738880702", "Origanization": "", "City": "unnao", "Address": "shukla ganj" }],
+                                        visitor: [{ "Visitor_ID": 109, "Pass_ID": 109, "Emp_ID": 103533, "Mobile_Number": "9818007842", "Visit_Department": "PROCUREMENT", "VisitPurpose": 3 }, { "Visitor_ID": 110, "Pass_ID": 110, "Emp_ID": 100481, "Mobile_Number": "9140064080", "Visit_Department": "Marketing", "VisitPurpose": 3 }, { "Visitor_ID": 111, "Pass_ID": 111, "Emp_ID": 107498, "Mobile_Number": "8960850669", "Visit_Department": "HR", "VisitPurpose": 3 }, { "Visitor_ID": 112, "Pass_ID": 112, "Emp_ID": 110325, "Mobile_Number": "8604272405", "Visit_Department": "RETAIL1", "VisitPurpose": 3 }, { "Visitor_ID": 113, "Pass_ID": 113, "Emp_ID": 98394, "Mobile_Number": "7703010755", "Visit_Department": "PROCUREMENT", "VisitPurpose": 3 }, { "Visitor_ID": 114, "Pass_ID": 114, "Emp_ID": 97528, "Mobile_Number": "8269445651", "Visit_Department": "OPERATION", "VisitPurpose": 3 }, { "Visitor_ID": 115, "Pass_ID": 115, "Emp_ID": 111709, "Mobile_Number": "9026061207", "Visit_Department": "RETAIL1", "VisitPurpose": 1 }],
+                                        getColor: function (value) {
+                                            if (value % 2 ==0) {
+                                                return "Red"
+                                            }
+                                            return "Blue"
+                                        },
+                                        add: function () {
+                                            this.data.push({
+                                                "product_name": product_name.value,
+                                                "supplier": supplier.value,
+                                                "quantity": quantity.value,
+                                                "unit_cost": unit_cost.value
+                                            })
 
-        m2.run()
+                                            m1.run();
 
+                                        }
+                                    })
+
+
+                                    console.log(m1)
+                                    /*
+                                    var m2 = new $hw("app2", {
+                                        data: [{
+                                            "product_name": "sildenafil citrate",
+                                            "supplier": "Wisozk Inc",
+                                            "quantity": 261,
+                                            "unit_cost": "$10.47"
+                                        }, {
+                                            "product_name": "Mountain Juniperus ashei",
+                                            "supplier": "Keebler-Hilpert",
+                                            "quantity": 292,
+                                            "unit_cost": "$8.74"
+                                        }, {
+                                            "product_name": "Dextromathorphan HBr",
+                                            "supplier": "Schmitt-Weissnat",
+                                            "quantity": 211,
+                                            "unit_cost": "$20.53"
+                                        }],
+                                        getColor: function (value) {
+                                            if (value == 292) {
+                                                return "yellow"
+                                            }
+                                            return "skyblue"
+                                        },
+                                        showAlert: function (obj) {
+                                            alert(obj.innerHTML);
+                                        }
+
+                                    })
+
+window.onload = m2.run()
+
+
+*/
+
+
+                                    window.onload = m1.run()
+
+
+
+                                    ///////////////////////////////////////////////////////////////////////////////////////
+
+                                    function changeColor1(sender) {
+                                        sender.style.color = "red"
+                                    }
+                                    function changeColor2(sender) {
+                                        sender.style.color = "green"
+                                    }
+
+                                    function showAlert(e) {
+                                        alert(e.value);
+                                    }
+
+                                </script>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <a id="btnBack" class="button button-red btnBack" href="/user/QueriesForMe.aspx?Pid=1010"><i class='fa fa-chevron-circle-left'></i> Back</a>
 
  
+ 
+ 
+ 
 
- ///////////////////////////////////////////////////////////////////////////////////////
-
-        function changeColor1(sender) {
-            sender.style.color = "red"
-        }
-        function changeColor2(sender) {
-            sender.style.color = "green"
-        }
-
-    </script>
-
-
+ 
+ 
 </body>
-
 </html>
+
 
