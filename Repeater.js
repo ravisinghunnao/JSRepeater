@@ -9,56 +9,66 @@
     this.app = $("*[hw-app=" + appId + "]")[0]
     this.html = $("*[hw-app=" + appId + "]")[0].innerHTML
     this.if = function (exp) {
-        exp = exp.replace(/#/gi,"'")
+        exp = exp.replace(/#/gi, "'")
         return eval(exp)
     }
 
     var self = this;
-    
+
     this.run = function () {
         buildHTML()
-    
+
         self.app.innerHTML = self.html;
-        
+
         var r = document.querySelector("*[hw-app=" + self.appId + "]")
-        
+
         //bind repeater
         bindRepeater(r)
         //end repeater
         //bind models
 
-        r.innerHTML=bindModels(r)
-      
+        r.innerHTML = bindModels(r)
+
         //end bind models
 
         //execute expressions
         r.innerHTML = generateHTML(r.innerHTML)
         //end execute expressions
         r.querySelectorAll("*[hw-show=false]").forEach(function (i) {
-            i.style.display="none"
+            i.style.display = "none"
         })
         r.querySelectorAll("*[hw-model]").forEach(function (i) {
             i.value = eval("self.o." + i.getAttribute("hw-model"))
 
         })
+
+        r.querySelectorAll("*[hw-update]").forEach(function (i) {
+            i.getAttribute("hw-update").split(",").forEach(function (e) {
+                eval("i." + e + "=" + "function (){self.update(i)}")
+            })
+
+
+        })
+
+
     }
     function buildHTML() {
         var elements = parser.parseFromString("<div id='parent'>" + self.html + "</div>", "text/html");
-        
+
         var i = 0;
         elements.querySelector("#parent").querySelectorAll("*").forEach(function (elm) {
             var text = elm.innerHTML ? elm.innerHTML : elm.value
 
             if (text != undefined && text.search("{{") >= 0) {
-                i++ 
+                i++
                 elm.setAttribute("hw-element", "hw-" + i)
             }
         })
         self.html = elements.querySelector("#parent").innerHTML
-        
+
     }
 
-    function bindRepeater(r){
+    function bindRepeater(r) {
         while (r.querySelector("*[hw-repeat]") != null) {
             bindInnerElement(r)
 
@@ -95,15 +105,15 @@
         var dataHTML = ""
         var dataLoop = r.getAttribute("hw-repeat")
         var loopArray = dataLoop.replace(/  /gi, ' ').split(" ")
-        
+
         var da = loopArray[0]
         var data = eval("self.o." + loopArray[2])
-        
+
         r.removeAttribute("hw-repeat");
         if (data != null) {
 
-           // var filter = r.getAttribute("hw-filter")
-            
+            // var filter = r.getAttribute("hw-filter")
+
             data.forEach(function (d) {
                 /*
                 if (filter) {
@@ -133,14 +143,14 @@
 
                 }
                 */
-                
+
                 var arr = html.split("}}");
                 for (var i = 0; i < arr.length; i++) {
                     var value = (arr[i].split("{{"))[1]
                     if (value != undefined) {
                         value = value.replace(da + ".", "")
                     }
-                    
+
                     if (value != undefined) {
 
                         if (eval("d." + value) != undefined) {
@@ -162,17 +172,17 @@
 
     function saveModels(r) {
         r.querySelectorAll("*[hw-model]").forEach(function (i) {
-            eval("self.o." + i.getAttribute("hw-model") + "='" + i.value+"'")
-            
+            eval("self.o." + i.getAttribute("hw-model") + "='" + i.value + "'")
+
         })
     }
 
     this.update = function (sender) {
-        
+
         var parser = new DOMParser()
-      var elements=  parser.parseFromString(self.html,"text/html")
+        var elements = parser.parseFromString(self.html, "text/html")
         var modelName = sender.getAttribute("hw-model")
-       
+
         elements.querySelectorAll("*[hw-element]").forEach(function (elm) {
             if (elm.innerHTML != undefined) {
                 if (elm.innerHTML == "{{" + modelName + "}}") {
@@ -211,7 +221,7 @@
 
         })
 
-      
+
     }
 
     function generateHTML(html) {
@@ -234,6 +244,6 @@
         }
     }
 
-    
-    
+
+
 }
