@@ -14,16 +14,10 @@
     }
 
     var self = this;
-
-
-
+    
     this.run = function () {
         buildHTML()
-        //save models//
-        saveModels(self.app)
-
-        //end save models//
-  
+    
         self.app.innerHTML = self.html;
         
         var r = document.querySelector("*[hw-app=" + self.appId + "]")
@@ -57,7 +51,7 @@
 
             if (text != undefined && text.search("{{") >= 0) {
                 i++ 
-                elm.setAttribute("hw-element", "hw" + i)
+                elm.setAttribute("hw-element", "hw-" + i)
             }
         })
         self.html = elements.querySelector("#parent").innerHTML
@@ -67,6 +61,7 @@
     function bindRepeater(r){
         while (r.querySelector("*[hw-repeat]") != null) {
             bindInnerElement(r)
+
         }
     }
 
@@ -107,9 +102,10 @@
         r.removeAttribute("hw-repeat");
         if (data != null) {
 
-            var filter = r.getAttribute("hw-filter")
+           // var filter = r.getAttribute("hw-filter")
             
             data.forEach(function (d) {
+                /*
                 if (filter) {
                     fdataHTML=""
                     var farr = filter.split("}}");
@@ -136,7 +132,7 @@
                     }
 
                 }
-
+                */
                 
                 var arr = html.split("}}");
                 for (var i = 0; i < arr.length; i++) {
